@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CookBook</string>
+    <string name="recipes_text"><b>Рецепты</b></string>
+    <string name="personal_">Личный кабинет</string>
+    <string name="whatever">Что-то ещё</string>
+    <string name="category">Теги поиска</string>
+</resources>
