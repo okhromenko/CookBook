@@ -9,57 +9,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="65dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="58dp"
+        android:layout_width="42dp"
+        android:layout_height="match_parent"
         android:background="@color/gray"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/recipes"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="70dp"
-            android:gravity="center_horizontal"
-            android:rotation="270"
-            android:text="@string/recipes_text"
-            android:textColor="@color/black"
-            android:textSize="16dp"
+        <ImageView
+            android:id="@+id/personal_acMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/recipesMenu"
+            app:srcCompat="@drawable/ic_personal_ac" />
 
-        <TextView
-            android:id="@+id/personal_ac"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="230dp"
-            android:gravity="center_horizontal"
-            android:rotation="270"
-            android:text="@string/personal_"
-            android:textColor="@color/black"
-            android:textSize="16dp"
+        <ImageView
+            android:id="@+id/recipesMenu"
+            android:layout_width="wrap_content"
+            android:onClick="OpenRecipes"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_boldresipes" />
 
-        <TextView
-            android:id="@+id/whatever"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="400dp"
-            android:gravity="center_horizontal"
-            android:rotation="270"
-            android:text="@string/whatever"
-            android:textColor="@color/black"
-            android:textSize="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -95,6 +73,31 @@
         app:layout_constraintStart_toEndOf="@+id/category_recipes"
         app:layout_constraintTop_toTopOf="@+id/category_recipes"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerRecipes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="130dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/categoryRecycler"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/addRecipesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RecyclerRecipes"
+        app:srcCompat="@drawable/ic_createresipes" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
 package com.example.cookbookfinal.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.icu.util.ULocale;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cookbookfinal.MainActivity;
 import com.example.cookbookfinal.R;
 import com.example.cookbookfinal.model.category;
 
@@ -33,8 +34,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.categoryTitle.setText(categories.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.ShowRecipesByCategory(categories.get(position).getId());
+            }
+        });
     }
 
     @Override

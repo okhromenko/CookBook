@@ -2,6 +2,10 @@
     <string name="app_name">CookBook</string>
     <string name="recipes_text"><b>Рецепты</b></string>
     <string name="personal_">Личный кабинет</string>
-    <string name="whatever">Что-то ещё</string>
+    <string name="whatever">Сохраненное</string>
     <string name="category">Теги поиска</string>
+    <string name="recipes_start">Время приготовления:</string>
+    <string name="recipes_level">Уровень сложности:</string>
+    <string name="pageResipes">Тут вкуснейший рецепт этого божественного блюда</string>
+
 </resources>
