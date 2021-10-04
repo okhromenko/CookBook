@@ -114,4 +114,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, Personal_acc.class);
         startActivity(intent);
     }
+
+    public void AddResipes(View view){
+        Intent intent = new Intent(this, AddResipes.class);
+        startActivity(intent);
+    }
+
+    public void SettingsPersonal(View view){
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
 }

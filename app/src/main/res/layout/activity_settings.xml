@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Personal_acc">
+    tools:context=".Settings">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -19,13 +19,14 @@
         <ImageView
             android:id="@+id/personal_acMenu"
             android:layout_width="wrap_content"
-            android:onClick="OpelPersonalAcc"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:onClick="OpelPersonalAcc"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipesMenu"
-            app:srcCompat="@drawable/ic_bold_personal_ac" />
+            app:srcCompat="@drawable/ic_personal_ac" />
 
         <ImageView
             android:id="@+id/recipesMenu"
@@ -47,7 +48,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_acMenu"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_boldsetting" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -63,14 +64,14 @@
         app:srcCompat="@drawable/ic_cookbook" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Пустота...как и в моей черепушке"
+        android:onClick="SettingsPersonal"
+        android:text="Тут тоже все появится позже"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
