@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CookBookFinal">
         <activity
+            android:name=".Personal_acc"
+            android:exported="true" />
+        <activity
             android:name=".RecipesPage"
             android:exported="true" />
         <activity

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static RecipesAdapter recipesAdapter;
     static List<Recipes> recipesList = new ArrayList<>();
     static List<Recipes> fullrecipesList = new ArrayList<>();
-    ImageView buttonCategoryAll;
+    ImageView buttonCategoryAll, buttonPersonalMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setCategoryRecycler(categoryList);
 
 
+        recipesList.clear();
+        fullrecipesList.clear();
+
         recipesList.add(new Recipes(1, "basturma", "Бастурма", "22 дня", "средний", "#424345", "Вкуснейший рецепт", 1));
         recipesList.add(new Recipes(2, "python_3", "Камбала в духовке", "1 час", "начальный", "#9FA52D", "Рецепт будет позже", 2));
 
@@ -50,8 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setResipesRecycler(recipesList);
 
         buttonCategoryAll = (ImageView) findViewById(R.id.category_recipes);
-        buttonCategoryAll.setOnClickListener(this);
 
+
+        buttonCategoryAll.setOnClickListener(this);
     }
 
     private void setCategoryRecycler(List<category> categoryList){
@@ -103,6 +107,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void OpenRecipes(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void OpelPersonalAcc(View view){
+        Intent intent = new Intent(this, Personal_acc.class);
         startActivity(intent);
     }
 }

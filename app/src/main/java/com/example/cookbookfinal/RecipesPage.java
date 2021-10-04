@@ -36,4 +36,9 @@ public class RecipesPage extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
+    public void OpelPersonalAcc(View view){
+        Intent intent = new Intent(this, Personal_acc.class);
+        startActivity(intent);
+    }
 }
