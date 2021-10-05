@@ -54,15 +54,145 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_margin="1dp"
+        android:layout_toEndOf="@+id/constraintLayout"
+        app:cardBackgroundColor="@color/gamma_blue"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cookbook" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Title"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHighlight="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textColorLink="@color/gamma_orange"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Image"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Level"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Category"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Time"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesShortDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="ShortDescription"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/AddRedipesDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:hint="Description"
+                android:inputType="text"
+                android:text=""
+                android:textColor="@color/gamma_yellow"
+                android:textColorHint="@color/gamma_yellow"
+                android:textSize="12sp"
+                app:met_baseColor="@color/gray"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="@color/gamma_yellow"
+                app:met_singleLineEllipsis="false" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
     <ImageView
         android:id="@+id/imageView6"
@@ -71,84 +201,14 @@
         android:layout_marginTop="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
         app:srcCompat="@drawable/ic_createrecipe" />
 
-    <TextView
-        android:id="@+id/AddRecipesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Название"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.314"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/AddRecipesPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
-        android:text="Картинка"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/AddRecipesTitle" />
-
-    <TextView
-        android:id="@+id/AddRecipesLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Level"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/AddRecipesPicture" />
-
-    <TextView
-        android:id="@+id/AddRecipesTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="AddRecipesText"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/AddRecipesLevel" />
-
-    <TextView
-        android:id="@+id/AddRecipesShortDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:textColor="@color/white"
-        android:text="AddRecipesShortDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.386"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/AddRecipesTime" />
-
-    <TextView
-        android:id="@+id/AddRecipesDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:textColor="@color/white"
-        android:text="AddRecipesDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/AddRecipesShortDescription" />
 
     <TableRow
+        android:id="@+id/tableRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -197,5 +257,15 @@
         </androidx.cardview.widget.CardView>
 
     </TableRow>
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cookbook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
