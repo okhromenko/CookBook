@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gamma_dark"
+    android:id="@+id/add_resipes_root"
     tools:context=".AddResipes">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,5 +73,129 @@
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:srcCompat="@drawable/ic_createrecipe" />
+
+    <TextView
+        android:id="@+id/AddRecipesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Название"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AddRecipesPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="Картинка"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AddRecipesTitle" />
+
+    <TextView
+        android:id="@+id/AddRecipesLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Level"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AddRecipesPicture" />
+
+    <TextView
+        android:id="@+id/AddRecipesTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="AddRecipesText"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AddRecipesLevel" />
+
+    <TextView
+        android:id="@+id/AddRecipesShortDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:textColor="@color/white"
+        android:text="AddRecipesShortDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AddRecipesTime" />
+
+    <TextView
+        android:id="@+id/AddRecipesDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:textColor="@color/white"
+        android:text="AddRecipesDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/AddRecipesShortDescription" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/gamma_orange"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/SaveButton"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:backgroundTint="@color/gamma_yellow"
+                android:fontFamily="@font/montserrat_medium"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/SaveButton"
+                android:textColor="@color/gamma_red"
+                app:cornerRadius="10dp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="@color/gamma_orange"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/DeleteButton"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:backgroundTint="@color/gamma_red"
+                android:fontFamily="@font/montserrat_medium"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/DeleteButton"
+                android:textColor="@color/gamma_yellow"
+                app:cornerRadius="10dp" />
+        </androidx.cardview.widget.CardView>
+
+    </TableRow>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
