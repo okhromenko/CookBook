@@ -1,6 +1,5 @@
 package com.example.cookbookfinal.Models;
 
-import android.widget.ImageView;
 
 public class User {
     private String email, name, password, image;

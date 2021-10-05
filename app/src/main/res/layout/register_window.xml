@@ -58,20 +58,6 @@
             app:met_baseColor="#0056d3"
             app:met_singleLineEllipsis="true"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/passField_double"
-            android:hint="Password_double"
-            android:inputType="textPassword"
-            android:text=""
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            app:met_floatingLabel="highlight"
-            app:met_primaryColor="#982360"
-            app:met_baseColor="#0056d3"
-            app:met_singleLineEllipsis="true"/>
 
     </LinearLayout>
 

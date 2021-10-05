@@ -1,5 +1,6 @@
 package com.example.cookbookfinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.cookbookfinal.Models.User;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
@@ -50,6 +52,39 @@ public class Authorization extends AppCompatActivity {
                 showRegisterWindow();
             }
         });
+
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final MaterialEditText email = findViewById(R.id.emailField);
+                final MaterialEditText password = findViewById(R.id.passField);
+
+                if (TextUtils.isEmpty(email.getText().toString())){
+                    Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.getText().toString().length() < 5){
+                    Snackbar.make(root, "Введите пароль более 5 символов", Snackbar.LENGTH_SHORT).show();
+                    return;
+                }
+
+                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        startActivity(new Intent(Authorization.this, MainActivity.class));
+                        finish();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Snackbar.make(root, "Ошибка авторизации " + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     private void showRegisterWindow() {
@@ -64,9 +99,6 @@ public class Authorization extends AppCompatActivity {
         final MaterialEditText email = register_window.findViewById(R.id.emailField);
         final MaterialEditText name = register_window.findViewById(R.id.nameField);
         final MaterialEditText password = register_window.findViewById(R.id.passField);
-        final MaterialEditText password_double = register_window.findViewById(R.id.passField_double);
-
-
 
         dialog.setNegativeButton("Отменить", new DialogInterface.OnClickListener() {
             @Override
@@ -78,10 +110,7 @@ public class Authorization extends AppCompatActivity {
             dialog.setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    if (password != password_double){
-                        Snackbar.make(root, "Пароли не совпадают", Snackbar.LENGTH_SHORT).show();
-                        return;
-                    }
+
 
                     if (TextUtils.isEmpty(email.getText().toString())){
                         Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
@@ -107,13 +136,20 @@ public class Authorization extends AppCompatActivity {
                                     user.setPassword(password.getText().toString());
                                     user.setRole(false);
 
-                                    users.child(user.getEmail()).setValue(user)
+                                    users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
                                                 public void onSuccess(Void unused) {
-                                                    Snackbar.make(root, "Пользователь добавлен", Snackbar.LENGTH_SHORT).show();
+                                                    Snackbar.make(root, "Пользователь добавлен",
+                                                            Snackbar.LENGTH_SHORT).show();
                                                 }
-                                            });
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Snackbar.make(root, "Ошибка регистрации "
+                                                    + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             });
                 }
