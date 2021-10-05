@@ -1,21 +1,33 @@
 package com.example.cookbookfinal;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.sax.EndElementListener;
 import android.view.View;
 
+import com.example.cookbookfinal.Models.Category;
+import com.example.cookbookfinal.Models.Cook;
+import com.example.cookbookfinal.Models.User;
 import com.example.cookbookfinal.adapter.CategoryAdapter;
 import com.example.cookbookfinal.adapter.RecipesAdapter;
 import com.example.cookbookfinal.model.Recipes;
 import com.example.cookbookfinal.model.category;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static RecipesAdapter recipesAdapter;
     static List<Recipes> recipesList = new ArrayList<>();
     static List<Recipes> fullrecipesList = new ArrayList<>();
-    ImageView buttonCategoryAll, buttonPersonalMenu;
+    ImageView buttonCategoryAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         recipesList.clear();
         fullrecipesList.clear();
+
+
+
+//        Category category = new Category("Рыба");
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+//        databaseReference.child("Category").push().setValue(category, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+//            }
+//        });
+
+
+
 
         recipesList.add(new Recipes(1, "basturma", "Бастурма", "22 дня", "средний", "#424345", "Вкуснейший рецепт", 1));
         recipesList.add(new Recipes(2, "python_3", "Камбала в духовке", "1 час", "начальный", "#9FA52D", "Рецепт будет позже", 2));
