@@ -7,5 +7,6 @@
     <string name="recipes_start">Время приготовления:</string>
     <string name="recipes_level">Уровень сложности:</string>
     <string name="pageResipes">Тут вкуснейший рецепт этого божественного блюда</string>
+    <string name="InputAuthorization">Вход</string>
 
 </resources>

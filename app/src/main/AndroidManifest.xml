@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CookBookFinal">
         <activity
-            android:name=".Settings"
+            android:name=".RecipesPage"
             android:exported="true" />
         <activity
             android:name=".AddResipes"
@@ -19,10 +19,13 @@
             android:name=".Personal_acc"
             android:exported="true" />
         <activity
-            android:name=".RecipesPage"
+            android:name=".Settings"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Authorization"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

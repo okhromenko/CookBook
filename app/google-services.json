@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "348875391442",
+    "project_id": "cookbook-e7944",
+    "storage_bucket": "cookbook-e7944.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:348875391442:android:90fa29b89d400191d3880b",
+        "android_client_info": {
+          "package_name": "com.example.cookbookfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "348875391442-04qmssnki60fevptnh9mafn9aa0urikd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cookbookfinal",
+            "certificate_hash": "e2379f474ba0953a1e6c1832108ef1236a7cd64a"
+          }
+        },
+        {
+          "client_id": "348875391442-i4uj4adp63v8pularijl5dn5vgnv7g4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrygu3GPd5kISyq0l0pq_p_thIqYe-EQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "348875391442-i4uj4adp63v8pularijl5dn5vgnv7g4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
