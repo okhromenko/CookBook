@@ -46,6 +46,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-database:20.0.2'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
     implementation 'com.android.support:design'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
