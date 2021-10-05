@@ -5,7 +5,8 @@
     android:id="@+id/ResipesPageBg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gamma_dark">
+    android:background="@color/gamma_dark"
+    android:backgroundTint="@color/gamma_dark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -50,8 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_acMenu"
-            app:srcCompat="@drawable/ic_settings"
-            tools:srcCompat="@drawable/ic_request_m" />
+            app:srcCompat="@drawable/ic_request_m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,8 +109,9 @@
         android:layout_width="270dp"
         android:layout_height="75dp"
         android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="@color/gamma_yellow"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
@@ -121,8 +122,9 @@
         android:layout_width="270dp"
         android:layout_height="180dp"
         android:layout_marginTop="124dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="@color/gamma_yellow"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
@@ -146,19 +148,22 @@
 
             <TextView
                 android:id="@+id/recipesPageLevel"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="80dp"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/app_name"
-                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textColor="@color/gamma_yellow"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/recipesPageDate"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="@string/app_name"
-                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:textColor="@color/gamma_yellow"
                 android:textSize="14sp" />
 
         </LinearLayout>

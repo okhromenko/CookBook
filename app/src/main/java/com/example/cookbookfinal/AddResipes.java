@@ -69,15 +69,6 @@ public class AddResipes extends AppCompatActivity {
                     Snackbar.make(add_resipes_root, "Введите краткое описание рецепта", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(AddCategory.getText().toString())){
-                    Snackbar.make(add_resipes_root, "К какой категории относится рецепт?", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(AddImage.getText().toString())){
-                    Snackbar.make(add_resipes_root, "Добавьте изображение", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
 
                 if (TextUtils.isEmpty(Description.getText().toString())){
                     Snackbar.make(add_resipes_root, "Введите рецепт", Snackbar.LENGTH_SHORT).show();
