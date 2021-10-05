@@ -2,16 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ResipesPageBg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/ResipesPageBg"
+    android:background="@color/gamma_dark"
     tools:context=".RecipesPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="42dp"
         android:layout_height="match_parent"
-        android:background="@color/gray"
+        android:background="@color/gamma_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ResipesPageImage"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,44 +23,45 @@
             android:id="@+id/personal_acMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="OpelPersonalAcc"
             android:layout_marginTop="20dp"
+            android:onClick="OpelPersonalAcc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipesMenu"
-            app:srcCompat="@drawable/ic_personal_ac" />
+            app:srcCompat="@drawable/ic_personal_m" />
 
         <ImageView
             android:id="@+id/recipesMenu"
-            android:onClick="OpenRecipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="72dp"
+            android:onClick="OpenRecipes"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_boldresipes" />
+            app:srcCompat="@drawable/ic_cook_m" />
 
         <ImageView
             android:id="@+id/OpenSettings"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="SettingsPersonal"
             android:layout_marginTop="20dp"
+            android:onClick="SettingsPersonal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_acMenu"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_settings"
+            tools:srcCompat="@drawable/ic_request_m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/ResipesPageImage"
-        android:transitionName="resipesImage"
         android:layout_width="0dp"
         android:layout_height="230dp"
         android:scaleType="centerCrop"
+        android:transitionName="resipesImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
@@ -72,11 +74,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="@color/gamma_yellow"
         android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/ResipesPageImage" />
 
@@ -84,11 +87,11 @@
         android:id="@+id/recipesBg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
-        app:cardElevation="0dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/ResipesPageTitle">

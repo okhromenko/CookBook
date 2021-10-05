@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Мясо"
-        android:textColor="@color/black"
+        android:textColor="@color/gamma_yellow"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"

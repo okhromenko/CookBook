@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0C1421"
     tools:context=".Personal_acc">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="42dp"
         android:layout_height="match_parent"
-        android:background="@color/gray"
+        android:background="@drawable/ic_aside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,35 +20,35 @@
         <ImageView
             android:id="@+id/personal_acMenu"
             android:layout_width="wrap_content"
-            android:onClick="OpelPersonalAcc"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:onClick="OpelPersonalAcc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipesMenu"
-            app:srcCompat="@drawable/ic_bold_personal_ac" />
+            app:srcCompat="@drawable/ic_personal_b" />
 
         <ImageView
             android:id="@+id/recipesMenu"
             android:layout_width="wrap_content"
-            android:onClick="OpenRecipes"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
+            android:onClick="OpenRecipes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_recipes" />
+            app:srcCompat="@drawable/ic_cook_m" />
 
         <ImageView
             android:id="@+id/OpenSettings"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="SettingsPersonal"
             android:layout_marginTop="20dp"
+            android:onClick="SettingsPersonal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_acMenu"
-            app:srcCompat="@drawable/ic_settings" />
+            app:srcCompat="@drawable/ic_request_m" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

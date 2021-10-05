@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#EAEAEA</color>
     <color name="whilefon">#F6F6F6</color>
+
+    <color name="gamma_red">#4A1601</color>
+    <color name="gamma_orange">#9A5327</color>
+    <color name="gamma_yellow">#CD8C4A</color>
+    <color name="gamma_blue">#163641</color>
+    <color name="gamma_dark">#0C1421</color>
+
 </resources>

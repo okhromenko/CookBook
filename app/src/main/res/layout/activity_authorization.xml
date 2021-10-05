@@ -7,6 +7,16 @@
     android:id="@+id/root_element"
     tools:context=".Authorization">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="42dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_aside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/buttonAuthorization"
         android:layout_width="154dp"
