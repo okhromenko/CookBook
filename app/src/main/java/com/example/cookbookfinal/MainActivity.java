@@ -69,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
 
 
-
-
         recipesList.add(new Recipes(1, "basturma", "Бастурма", "22 дня", "средний", "#424345", "Вкуснейший рецепт", 1));
         recipesList.add(new Recipes(2, "python_3", "Камбала в духовке", "1 час", "начальный", "#9FA52D", "Рецепт будет позже", 2));
 

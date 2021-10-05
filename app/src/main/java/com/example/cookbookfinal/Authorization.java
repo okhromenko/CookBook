@@ -3,6 +3,7 @@ package com.example.cookbookfinal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.example.cookbookfinal.Models.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,7 +30,7 @@ public class Authorization extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase db;
     DatabaseReference users;
-    RelativeLayout root;
+    ConstraintLayout root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class Authorization extends AppCompatActivity {
     private void showRegisterWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Зарегистрироваться");
-        dialog.setMessage("Введите все данные для регистрации");
+        dialog.setMessage("Введите все данные для регистрации:");
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View register_window = inflater.inflate(R.layout.register_window, null);
@@ -146,7 +146,7 @@ public class Authorization extends AppCompatActivity {
                                             }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Snackbar.make(root, "Ошибка регистрации "
+                                            Snackbar.make(root, "Ошибка регистрации"
                                                     + e.getMessage(), Snackbar.LENGTH_SHORT).show();
                                         }
                                     });
