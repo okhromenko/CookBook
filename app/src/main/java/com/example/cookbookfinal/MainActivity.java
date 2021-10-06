@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static List<Category> CategoryList = new ArrayList<>();
     List<String> listData = new ArrayList<>();
     List <Category> listTemp = new ArrayList<>();
+    List <Cook> listCook = new ArrayList<>();
 
 
 
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mdatabaseref = FirebaseDatabase.getInstance().getReference("Category");
-        mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
+        mdatabaseref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -71,8 +72,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     listData.add(value.getName());
                     listTemp.add(value);
                 }
+                CategoryList.clear();
                 CategoryList.addAll(listTemp);
                 setCategoryRecycler(CategoryList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Cook");
+        mdatabaseref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+//                    DataSnapshot data = snapshot.child("name");
+//                    Category value = data.getValue(Category.class);
+//                    list.add(value);
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Cook value = ds.getValue(Cook.class);
+//                    Category category = new Category();
+
+                    listCook.add(value);
+                }
+                recipesList.clear();
+                recipesList.addAll(listCook);
+                setCategoryRecycler(CategoryList);
+                fullrecipesList.clear();
+                fullrecipesList.addAll(recipesList);
+                setResipesRecycler(recipesList);
             }
 
             @Override
@@ -93,8 +124,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 
 
-        recipesList.clear();
-        fullrecipesList.clear();
+//        recipesList.clear();
+//        fullrecipesList.clear();
 
 
 
@@ -107,16 +138,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
 
 
-        recipesList.add(new Cook("Бастурма", "Вкуснейшее блюдо!",
-                "Каждый пользователь, лишь раз увидев Баструму, захочет её приготовить!",
-                "python_3", "33 дня", "средний", true,  "Мясо"));
 
-        fullrecipesList.addAll(recipesList);
-        setResipesRecycler(recipesList);
 
         buttonCategoryAll = (ImageView) findViewById(R.id.category_recipes);
-
-
         buttonCategoryAll.setOnClickListener(this);
     }
 
