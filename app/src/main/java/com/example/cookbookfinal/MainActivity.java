@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -110,8 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 for (DataSnapshot ds : snapshot.getChildren()){
                     Cook value = ds.getValue(Cook.class);
+                    if (value.getRelease() == true){listCook.add(value);}
 
-                    listCook.add(value);
                 }
                 recipesList.clear();
                 recipesList.addAll(listCook);
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         List<Cook> filterResipes = new ArrayList<>();
 
         for (Cook c : recipesList){
-            if (c.getCategory().equals(category)){
+            if (c.getCategory().equalsIgnoreCase(category)){
                 filterResipes.add(c);
             }
         }

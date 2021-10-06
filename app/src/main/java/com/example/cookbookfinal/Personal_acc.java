@@ -18,6 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Personal_acc extends AppCompatActivity {
+    public FirebaseAuth mAuth;
+    public DatabaseReference myRef;
+    DatabaseReference mdatabaseref;
 
 
 
@@ -25,6 +28,33 @@ public class Personal_acc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_acc);
+
+        myRef = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser UseruID = mAuth.getInstance().getCurrentUser();
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Users");
+        mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    User value = ds.getValue(User.class);
+                    Boolean role = value.getRole();
+
+                    String tt = UseruID.getUid();
+
+                    if (ds.getKey().toString().equals(tt) && role == true) {
+                        ImageView view = findViewById(R.id.OpenSettings);
+                        view.setVisibility(View.VISIBLE);
+                    };
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     public void ExitAccount(View view){

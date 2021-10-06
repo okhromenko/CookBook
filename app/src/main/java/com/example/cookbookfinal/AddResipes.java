@@ -10,25 +10,59 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 import com.example.cookbookfinal.Models.Cook;
+import com.example.cookbookfinal.Models.User;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class AddResipes extends AppCompatActivity {
     Button btnAddRecipes, btnDeleteResipes;
     ConstraintLayout add_resipes_root;
+    public FirebaseAuth mAuth;
+    public DatabaseReference myRef;
+    DatabaseReference mdatabaseref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_resipes);
+
+        myRef = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser UseruID = mAuth.getInstance().getCurrentUser();
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Users");
+        mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    User value = ds.getValue(User.class);
+                    Boolean role = value.getRole();
+
+                    String tt = UseruID.getUid();
+
+                    if (ds.getKey().toString().equals(tt) && role == true) {
+                        ImageView view = findViewById(R.id.OpenSettings);
+                        view.setVisibility(View.VISIBLE);
+                    };
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         btnAddRecipes = findViewById(R.id.SaveButton);
         btnDeleteResipes = findViewById(R.id.DeleteButton);
@@ -74,7 +108,7 @@ public class AddResipes extends AppCompatActivity {
 
                 Cook cook = new Cook(Title.getText().toString(), ShortDescription.getText().toString(),
                         Description.getText().toString(), AddImage.getText().toString(), Time.getText().toString(),
-                        Level.getText().toString(), true, AddCategory.getText().toString());
+                        Level.getText().toString(), false, AddCategory.getText().toString());
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                 databaseReference.child("Cook").push().setValue(cook, new DatabaseReference.CompletionListener() {
                     @Override
