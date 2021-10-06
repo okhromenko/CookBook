@@ -19,9 +19,11 @@ import com.example.cookbookfinal.model.Recipes;
 import com.example.cookbookfinal.model.category;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -40,10 +42,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static List<Recipes> fullrecipesList = new ArrayList<>();
     ImageView buttonCategoryAll;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         List<category> categoryList = new ArrayList<>();
         categoryList.add(new category(1, "Мясо"));
@@ -57,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         recipesList.clear();
         fullrecipesList.clear();
-
 
 
 //        Category category = new Category("Рыба");

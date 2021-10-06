@@ -149,8 +149,9 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/buttonExitAccount"
         android:layout_width="wrap_content"
+        android:onClick="ExitAccount"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
