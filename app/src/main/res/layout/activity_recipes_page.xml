@@ -81,7 +81,7 @@
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/ResipesPageImage" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/RecipesPageText"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -93,7 +93,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout" />
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout" />-->
 
     <ImageView
         android:id="@+id/imageView9"
@@ -118,7 +118,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recipesBg" />
 
     <TextView
-        android:id="@+id/recipesPageLevel3"
+        android:id="@+id/RecipesPageText"
         android:layout_width="270dp"
         android:layout_height="180dp"
         android:layout_marginTop="124dp"
