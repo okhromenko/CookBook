@@ -10,6 +10,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+
+
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 
 import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
@@ -22,16 +27,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+
 import com.example.cookbookfinal.Models.Cook;
 
 public class AddResipes extends AppCompatActivity {
     Button btnAddRecipes, btnDeleteResipes;
     ConstraintLayout add_resipes_root;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_resipes);
+
 
         btnAddRecipes = findViewById(R.id.SaveButton);
         btnDeleteResipes = findViewById(R.id.DeleteButton);
@@ -86,6 +94,8 @@ public class AddResipes extends AppCompatActivity {
                                 Snackbar.LENGTH_SHORT).show();
                     }
                 });
+                startActivity(new Intent(AddResipes.this, MainActivity.class));
+                finish();
             }
         });
 
