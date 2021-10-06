@@ -8,7 +8,7 @@
     <string name="recipes_level">Уровень сложности:</string>
     <string name="pageResipes">Тут вкуснейший рецепт этого божественного блюда</string>
     <string name="InputAuthorization">Вход</string>
-    <string name="DeleteButton">Удалить</string>
+    <string name="DeleteButton">Отменить</string>
     <string name="SaveButton">Сохранить</string>
 
 </resources>

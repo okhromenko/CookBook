@@ -111,6 +111,7 @@ public class Authorization extends AppCompatActivity {
 
     private void showRegisterWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+
         dialog.setTitle("Зарегистрироваться");
         dialog.setMessage("Введите все данные для регистрации:");
 
@@ -176,6 +177,7 @@ public class Authorization extends AppCompatActivity {
                             });
                 }
             });
+
             dialog.show();
     }
 }
