@@ -92,10 +92,10 @@ public class AddResipes extends AppCompatActivity {
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                         Snackbar.make(add_resipes_root, "Рецепт добавлен",
                                 Snackbar.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddResipes.this, MainActivity.class));
-                        finish();
                     }
                 });
+                startActivity(new Intent(AddResipes.this, MainActivity.class));
+                finish();
             }
         });
 
