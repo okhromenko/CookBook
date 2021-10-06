@@ -1,5 +1,6 @@
 package com.example.cookbookfinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,15 +10,23 @@ import android.view.View;
 
 import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
+import com.example.cookbookfinal.Models.User;
 import com.example.cookbookfinal.adapter.CategoryAdapter;
 import com.example.cookbookfinal.adapter.RecipesAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.Iterator;
 import java.util.List;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Queue;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -31,6 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CategoryAdapter categoryAdapter;
     static RecipesAdapter recipesAdapter;
     ImageView buttonCategoryAll;
+    List<Category> list;
+    DatabaseReference mdatabaseref;
+    FirebaseDatabase firebaseDb;
+    static List<Category> CategoryList = new ArrayList<>();
+    List<String> listData = new ArrayList<>();
+    List <Category> listTemp = new ArrayList<>();
+
 
 
 
@@ -39,28 +55,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Category");
+        mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+//                    DataSnapshot data = snapshot.child("name");
+//                    Category value = data.getValue(Category.class);
+//                    list.add(value);
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Category value = ds.getValue(Category.class);
+//                    Category category = new Category();
+
+                    listData.add(value.getName());
+                    listTemp.add(value);
+                }
+                CategoryList.addAll(listTemp);
+                setCategoryRecycler(CategoryList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
-        List<Category> categoryList = new ArrayList<>();
-        categoryList.add(new Category("Мясо"));
-        categoryList.add(new Category("Рыба"));
-        categoryList.add(new Category("Сладости"));
-        categoryList.add(new Category("Супы"));
-        categoryList.add(new Category("Прочее"));
+//        List<Category> categoryList = new ArrayList<>();
+//        categoryList.add(new Category("Мясо"));
+//        categoryList.add(new Category("Рыба"));
+//        categoryList.add(new Category("Сладости"));
+//        categoryList.add(new Category("Супы"));
+//        categoryList.add(new Category("Прочее"));
 
-        setCategoryRecycler(categoryList);
+//
 
 
         recipesList.clear();
         fullrecipesList.clear();
 
 
-//        Category category = new Category("Рыба");
+
+//        Category category = new Category("dddd", "Супы");
 //        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 //        databaseReference.child("Category").push().setValue(category, new DatabaseReference.CompletionListener() {
 //            @Override
-//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+//            public void onComplete(DatabaseError error, @NonNull DatabaseReference ref) {
 //            }
 //        });
 
