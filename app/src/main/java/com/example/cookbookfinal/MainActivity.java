@@ -11,6 +11,8 @@ import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
 import com.example.cookbookfinal.adapter.CategoryAdapter;
 import com.example.cookbookfinal.adapter.RecipesAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
@@ -21,26 +23,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-
-
     static List<Cook> recipesList = new ArrayList<>();
     static List<Cook> fullrecipesList = new ArrayList<>();
-
 
     RecyclerView categoryRecycle, resipesRecycle;
     CategoryAdapter categoryAdapter;
     static RecipesAdapter recipesAdapter;
     ImageView buttonCategoryAll;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("Мясо"));
@@ -50,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         categoryList.add(new Category("Прочее"));
 
         setCategoryRecycler(categoryList);
-
 
         recipesList.clear();
         fullrecipesList.clear();
@@ -67,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         recipesList.add(new Cook("Бастурма", "Вкуснейшее блюдо!",
                 "Каждый пользователь, лишь раз увидев Баструму, захочет её приготовить!",
-                "python_3", "33 дня", "средний", true,  "Мясо"));
+                "https://static.life.ru/posts/2016/11/932362/0d4dd8e54c35011ffc1131e1a838a127.jpg", "33 дня", "средний", true,  "Мясо"));
+
 
         fullrecipesList.addAll(recipesList);
         setResipesRecycler(recipesList);

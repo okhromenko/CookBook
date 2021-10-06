@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cookbookfinal.R;
 import com.example.cookbookfinal.RecipesPage;
 import com.example.cookbookfinal.Models.Cook;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -45,8 +46,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     @Override
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImage(), "drawable", context.getPackageName());
-        holder.recipesImage.setImageResource(imageId);
+        /*int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImage(), "drawable", context.getPackageName());*/
+
+        Picasso.get().load(recipes.get(position).getImage()).into(holder.recipesImage);
+
+//        holder.recipesImage.setImageResource(imageId);
 
         holder.recipesTitle.setText(recipes.get(position).getName());
         holder.recipesDate.setText(recipes.get(position).getTime());
@@ -60,11 +64,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)  context,
                         new Pair<View, String >(holder.recipesImage, "resipesImage"));
-                intent.putExtra("resipesImage", imageId);
+                intent.putExtra("resipesImage", recipes.get(position).getImage());
                 intent.putExtra("resipesTitle", recipes.get(position).getName());
                 intent.putExtra("resipesDate", recipes.get(position).getTime());
                 intent.putExtra("resipesLevel", recipes.get(position).getLevel());
                 intent.putExtra("resipesText", recipes.get(position).getDescription());
+                intent.putExtra("recipeShortDescription", recipes.get(position).getShortDescription());
 //                intent.putExtra("resipesId", recipes.get(position).getId());
                 context.startActivity(intent, options.toBundle());
             }
