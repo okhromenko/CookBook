@@ -135,18 +135,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
-
-
         buttonCategoryAll = (ImageView) findViewById(R.id.category_recipes);
         buttonCategoryAll.setOnClickListener(this);
-
-
-
-
-
-
-
     }
 
     private void setCategoryRecycler(List<Category> categoryList){
@@ -168,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         List<Cook> filterResipes = new ArrayList<>();
 
         for (Cook c : recipesList){
-            if (c.getCategory().equalsIgnoreCase(category)){
+            if ((c.getCategory() != null) && (c.getCategory().equalsIgnoreCase(category))){
                 filterResipes.add(c);
             }
         }
