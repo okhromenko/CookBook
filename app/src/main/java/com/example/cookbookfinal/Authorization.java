@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -31,6 +32,8 @@ public class Authorization extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference users;
     ConstraintLayout root;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,19 @@ public class Authorization extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         users = db.getReference("Users");
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null){
+                    Intent intent = new Intent(Authorization.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        };
+
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +101,12 @@ public class Authorization extends AppCompatActivity {
                 });
             }
         });
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null){
+            Intent intent = new Intent(Authorization.this, MainActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void showRegisterWindow() {
