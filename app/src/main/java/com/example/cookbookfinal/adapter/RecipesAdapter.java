@@ -21,16 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbookfinal.R;
 import com.example.cookbookfinal.RecipesPage;
-import com.example.cookbookfinal.model.Recipes;
+import com.example.cookbookfinal.Models.Cook;
 
 import java.util.List;
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder> {
 
     Context context;
-    List<Recipes> recipes;
+    List<Cook> recipes;
 
-    public RecipesAdapter(Context context, List<Recipes> recipes) {
+    public RecipesAdapter(Context context, List<Cook> recipes) {
         this.context = context;
         this.recipes = recipes;
     }
@@ -46,11 +46,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.recipesBg.setCardBackgroundColor(Color.parseColor(recipes.get(position).getColor()));
 
-        int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImg(), "drawable", context.getPackageName());
+        int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImage(), "drawable", context.getPackageName());
         holder.recipesImage.setImageResource(imageId);
 
-        holder.recipesTitle.setText(recipes.get(position).getTitle());
-        holder.recipesDate.setText(recipes.get(position).getDate());
+        holder.recipesTitle.setText(recipes.get(position).getName());
+        holder.recipesDate.setText(recipes.get(position).getTime());
         holder.recipesLevel.setText(recipes.get(position).getLevel());
 
         holder.itemView.setOnClickListener(new OnClickListener() {
@@ -62,11 +62,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
                         new Pair<View, String >(holder.recipesImage, "resipesImage"));
                 intent.putExtra("resipesBg", Color.parseColor(recipes.get(position).getColor()));
                 intent.putExtra("resipesImage", imageId);
-                intent.putExtra("resipesTitle", recipes.get(position).getTitle());
-                intent.putExtra("resipesDate", recipes.get(position).getDate());
+                intent.putExtra("resipesTitle", recipes.get(position).getName());
+                intent.putExtra("resipesDate", recipes.get(position).getTime());
                 intent.putExtra("resipesLevel", recipes.get(position).getLevel());
-                intent.putExtra("resipesText", recipes.get(position).getText());
-                intent.putExtra("resipesId", recipes.get(position).getId());
+                intent.putExtra("resipesText", recipes.get(position).getDescription());
+//                intent.putExtra("resipesId", recipes.get(position).getId());
                 context.startActivity(intent, options.toBundle());
             }
         });

@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbookfinal.MainActivity;
 import com.example.cookbookfinal.R;
-import com.example.cookbookfinal.model.category;
+import com.example.cookbookfinal.Models.Category;
 
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     Context context;
-    List<category> categories;
+    List<Category> categories;
 
-    public CategoryAdapter(Context context, List<category> categories) {
+    public CategoryAdapter(Context context, List<Category> categories) {
         this.context = context;
         this.categories = categories;
     }
@@ -35,12 +35,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.categoryTitle.setText(categories.get(position).getTitle());
+        holder.categoryTitle.setText(categories.get(position).getName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.ShowRecipesByCategory(categories.get(position).getId());
+                MainActivity.ShowRecipesByCategory(categories.get(position).getName());
             }
         });
     }
