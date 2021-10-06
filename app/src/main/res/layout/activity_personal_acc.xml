@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:onClick="SettingsPersonal"
+            android:onClick="Request"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_acMenu"
@@ -159,7 +159,7 @@
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:srcCompat="@drawable/ic_exitbutton" />
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:srcCompat="@drawable/ic_settingbutton" />
+        app:srcCompat="@drawable/ic_settingbutton" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

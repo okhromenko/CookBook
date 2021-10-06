@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class RecipesPage extends AppCompatActivity {
 
     @Override
@@ -16,19 +18,19 @@ public class RecipesPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes_page);
 
-        ConstraintLayout resipesBg = findViewById(R.id.ResipesPageBg);
         ImageView resipesImage = findViewById(R.id.ResipesPageImage);
         TextView resipesTitle = findViewById(R.id.ResipesPageTitle);
         TextView resipesDate = findViewById(R.id.recipesPageDate);
         TextView resipesLevel = findViewById(R.id.recipesPageLevel);
         TextView resipesText = findViewById(R.id.RecipesPageText);
+        TextView resipesShortText = findViewById(R.id.recipesPageLevel2);
 
-        resipesBg.setBackgroundColor(getIntent().getIntExtra("resipesBg", 0));
-        resipesImage.setImageResource(getIntent().getIntExtra("resipesImage", 0));
+        Picasso.get().load(getIntent().getStringExtra("resipesImage")).into(resipesImage);
         resipesTitle.setText(getIntent().getStringExtra("resipesTitle"));
         resipesDate.setText(getIntent().getStringExtra("resipesDate"));
         resipesLevel.setText(getIntent().getStringExtra("resipesLevel"));
         resipesText.setText(getIntent().getStringExtra("resipesText"));
+        resipesShortText.setText(getIntent().getStringExtra("recipeShortDescription"));
     }
 
 
@@ -42,8 +44,8 @@ public class RecipesPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void SettingsPersonal(View view){
-        Intent intent = new Intent(this, Settings.class);
+    public void Request(View view){
+        Intent intent = new Intent(this, Request.class);
         startActivity(intent);
     }
 }

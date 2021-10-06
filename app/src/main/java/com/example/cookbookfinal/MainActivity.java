@@ -1,5 +1,6 @@
 package com.example.cookbookfinal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,29 +10,42 @@ import android.view.View;
 
 import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
+import com.example.cookbookfinal.Models.User;
 import com.example.cookbookfinal.adapter.CategoryAdapter;
 import com.example.cookbookfinal.adapter.RecipesAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 import java.util.List;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-
-
     static List<Cook> recipesList = new ArrayList<>();
     static List<Cook> fullrecipesList = new ArrayList<>();
-
-
+    public FirebaseAuth mAuth;
+    public DatabaseReference myRef;
     RecyclerView categoryRecycle, resipesRecycle;
     CategoryAdapter categoryAdapter;
     static RecipesAdapter recipesAdapter;
     ImageView buttonCategoryAll;
-
+    DatabaseReference mdatabaseref;
+    static List<Category> CategoryList = new ArrayList<>();
+    List<String> listData = new ArrayList<>();
+    List <Category> listTemp = new ArrayList<>();
+    List <Cook> listCook = new ArrayList<>();
 
 
     @Override
@@ -40,7 +54,75 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
+        myRef = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser UseruID = mAuth.getInstance().getCurrentUser();
 
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Users");
+        mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    User value = ds.getValue(User.class);
+                    Boolean role = value.getRole();
+
+                    String tt = UseruID.getUid();
+
+                    if (ds.getKey().toString().equals(tt) && role == true) {
+                        ImageView view = findViewById(R.id.OpenSettings);
+                        view.setVisibility(View.VISIBLE);
+                    };
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Category");
+        mdatabaseref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Category value = ds.getValue(Category.class);
+
+                    listData.add(value.getName());
+                    listTemp.add(value);
+                }
+                CategoryList.clear();
+                CategoryList.addAll(listTemp);
+                setCategoryRecycler(CategoryList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Cook");
+        mdatabaseref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Cook value = ds.getValue(Cook.class);
+
+                    listCook.add(value);
+                }
+                recipesList.clear();
+                recipesList.addAll(listCook);
+                setCategoryRecycler(CategoryList);
+                fullrecipesList.clear();
+                fullrecipesList.addAll(recipesList);
+                setResipesRecycler(recipesList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
         List<Category> categoryList = new ArrayList<>();
         categoryList.add(new Category("Мясо"));
@@ -49,32 +131,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         categoryList.add(new Category("Супы"));
         categoryList.add(new Category("Прочее"));
 
-        setCategoryRecycler(categoryList);
+            }
+        });
 
 
-        recipesList.clear();
-        fullrecipesList.clear();
 
-
-//        Category category = new Category("Рыба");
-//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-//        databaseReference.child("Category").push().setValue(category, new DatabaseReference.CompletionListener() {
-//            @Override
-//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-//            }
-//        });
-
-
-        recipesList.add(new Cook("Бфстурма", "Бастурма", "Меять", "python_3", "33 дня",
-                "амам", true, "#9FA52D", "Мясо"));
-
-        fullrecipesList.addAll(recipesList);
-        setResipesRecycler(recipesList);
 
         buttonCategoryAll = (ImageView) findViewById(R.id.category_recipes);
-
-
         buttonCategoryAll.setOnClickListener(this);
+
+
+
+
+
+
+
     }
 
     private void setCategoryRecycler(List<Category> categoryList){
@@ -139,8 +210,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    public void SettingsPersonal(View view){
-        Intent intent = new Intent(this, Settings.class);
+    public void Request(View view){
+        Intent intent = new Intent(this, Request.class);
         startActivity(intent);
     }
 }
