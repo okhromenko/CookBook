@@ -10,25 +10,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-
-import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
-
-
-import com.example.cookbookfinal.Models.Cook;
 
 public class AddResipes extends AppCompatActivity {
     Button btnAddRecipes, btnDeleteResipes;
@@ -85,7 +74,7 @@ public class AddResipes extends AppCompatActivity {
 
                 Cook cook = new Cook(Title.getText().toString(), ShortDescription.getText().toString(),
                         Description.getText().toString(), AddImage.getText().toString(), Time.getText().toString(),
-                        Level.getText().toString(), true, "#163641", AddCategory.getText().toString());
+                        Level.getText().toString(), true, AddCategory.getText().toString());
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                 databaseReference.child("Cook").push().setValue(cook, new DatabaseReference.CompletionListener() {
                     @Override
@@ -120,8 +109,8 @@ public class AddResipes extends AppCompatActivity {
     }
 
 
-    public void SettingsPersonal(View view){
-        Intent intent = new Intent(this, Settings.class);
+    public void Request(View view){
+        Intent intent = new Intent(this, Request.class);
         startActivity(intent);
     }
 }

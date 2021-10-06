@@ -19,7 +19,7 @@
             android:name=".Personal_acc"
             android:exported="true" />
         <activity
-            android:name=".Settings"
+            android:name=".Request"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

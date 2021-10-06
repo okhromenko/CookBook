@@ -6,25 +6,20 @@
         <entry key="..\:/CookBookFinal/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_basturma.xml" value="0.2520833333333333" />
         <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_category.xml" value="0.2520833333333333" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_createrecipe.xml" value="0.22916666666666666" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_createrecipestext.xml" value="0.22916666666666666" />
         <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_i_1.xml" value="0.2520833333333333" />
         <entry key="..\:/CookBookFinal/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_add_resipes.xml" value="0.1" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_authorization.xml" value="0.2" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_add_resipes.xml" value="0.153125" />
+        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_order_list_resipes.xml" value="0.2545289855072464" />
         <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_order_page.xml" value="0.26766304347826086" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_page_registrations.xml" value="0.27447916666666666" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_personal_acc.xml" value="0.1" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_recipes_page.xml" value="0.1416184971098266" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_request.xml" value="0.25885416666666666" />
+        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_personal_acc.xml" value="0.22291666666666668" />
+        <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_recipes_page.xml" value="0.264" />
         <entry key="..\:/CookBookFinal/app/src/main/res/layout/activity_settings.xml" value="0.176" />
         <entry key="..\:/CookBookFinal/app/src/main/res/layout/category_item.xml" value="0.4" />
         <entry key="..\:/CookBookFinal/app/src/main/res/layout/recipes_item.xml" value="0.2" />
-<<<<<<< HEAD
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14270833333333333" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_addrecipe.xml" value="0.14270833333333333" />
+        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_addrecipe_page.xml" value="0.15" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_aside.xml" value="0.14270833333333333" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_autoriz.xml" value="0.15" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_bold_personal_ac.xml" value="0.14270833333333333" />
@@ -58,25 +53,22 @@
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_settings.xml" value="0.14270833333333333" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_signin.xml" value="0.14270833333333333" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/drawable/ic_singup.xml" value="0.14270833333333333" />
-        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_add_resipes.xml" value="0.2" />
+        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_add_resipes.xml" value="0.26742976066597296" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_authorization.xml" value="0.264" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_personal_acc.xml" value="0.264" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_recipes_page.xml" value="0.264" />
-        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_request.xml" value="0.13385416666666666" />
+        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_request.xml" value="0.4" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/activity_settings.xml" value="0.2" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/category_item.xml" value="0.2" />
-        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/recipes_item.xml" value="0.4" />
+        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/recipes_item.xml" value="0.264" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/register_window.xml" value="0.264" />
+        <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/layout/request_item.xml" value="0.6" />
         <entry key="..\:/Programm/CookBook/CookBook-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15" />
-=======
-        <entry key="..\:/CookBookFinal/app/src/main/res/layout/register_window.xml" value="0.2" />
-        <entry key="..\:/CookBookFinal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.28615384615384615" />
->>>>>>> 6d06624966ccd4b3ca615498c79b34fef4839a4f
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -42,8 +42,8 @@ public class RecipesPage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void SettingsPersonal(View view){
-        Intent intent = new Intent(this, Settings.class);
+    public void Request(View view){
+        Intent intent = new Intent(this, Request.class);
         startActivity(intent);
     }
 }

@@ -44,7 +44,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
     @Override
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.recipesBg.setCardBackgroundColor(Color.parseColor(recipes.get(position).getColor()));
 
         int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImage(), "drawable", context.getPackageName());
         holder.recipesImage.setImageResource(imageId);
@@ -52,6 +51,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
         holder.recipesTitle.setText(recipes.get(position).getName());
         holder.recipesDate.setText(recipes.get(position).getTime());
         holder.recipesLevel.setText(recipes.get(position).getLevel());
+        holder.recipesShortDescription.setText(recipes.get(position).getShortDescription());
 
         holder.itemView.setOnClickListener(new OnClickListener() {
             @Override
@@ -60,7 +60,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)  context,
                         new Pair<View, String >(holder.recipesImage, "resipesImage"));
-                intent.putExtra("resipesBg", Color.parseColor(recipes.get(position).getColor()));
                 intent.putExtra("resipesImage", imageId);
                 intent.putExtra("resipesTitle", recipes.get(position).getName());
                 intent.putExtra("resipesDate", recipes.get(position).getTime());
@@ -80,7 +79,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     public static final class RecipesViewHolder extends RecyclerView.ViewHolder{
         CardView recipesBg;
         ImageView recipesImage;
-        TextView recipesTitle, recipesDate, recipesLevel;
+        TextView recipesTitle, recipesDate, recipesLevel, recipesShortDescription;
 
         public RecipesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,6 +89,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
             recipesTitle = itemView.findViewById(R.id.recipeTitle);
             recipesDate = itemView.findViewById(R.id.recipesDate);
             recipesLevel = itemView.findViewById(R.id.recipesLevel);
+            recipesShortDescription = itemView.findViewById(R.id.recipeShortDescription);
         }
     }
 }

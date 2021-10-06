@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
 
 
-        recipesList.add(new Cook("Бфстурма", "Бастурма", "Меять", "python_3", "33 дня",
-                "амам", true, "#9FA52D", "Мясо"));
+        recipesList.add(new Cook("Бастурма", "Вкуснейшее блюдо!",
+                "Каждый пользователь, лишь раз увидев Баструму, захочет её приготовить!",
+                "python_3", "33 дня", "средний", true,  "Мясо"));
 
         fullrecipesList.addAll(recipesList);
         setResipesRecycler(recipesList);
@@ -139,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    public void SettingsPersonal(View view){
-        Intent intent = new Intent(this, Settings.class);
+    public void Request(View view){
+        Intent intent = new Intent(this, Request.class);
         startActivity(intent);
     }
 }
