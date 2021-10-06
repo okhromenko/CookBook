@@ -1,46 +1,37 @@
 package com.example.cookbookfinal;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.sax.EndElementListener;
 import android.view.View;
 
 import com.example.cookbookfinal.Models.Category;
 import com.example.cookbookfinal.Models.Cook;
-import com.example.cookbookfinal.Models.User;
 import com.example.cookbookfinal.adapter.CategoryAdapter;
 import com.example.cookbookfinal.adapter.RecipesAdapter;
-import com.example.cookbookfinal.model.Recipes;
-import com.example.cookbookfinal.model.category;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+
+
+    static List<Cook> recipesList = new ArrayList<>();
+    static List<Cook> fullrecipesList = new ArrayList<>();
+
+
     RecyclerView categoryRecycle, resipesRecycle;
     CategoryAdapter categoryAdapter;
     static RecipesAdapter recipesAdapter;
-    static List<Recipes> recipesList = new ArrayList<>();
-    static List<Recipes> fullrecipesList = new ArrayList<>();
     ImageView buttonCategoryAll;
+
 
 
     @Override
@@ -51,12 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        List<category> categoryList = new ArrayList<>();
-        categoryList.add(new category(1, "Мясо"));
-        categoryList.add(new category(2, "Рыба"));
-        categoryList.add(new category(3, "Сладости"));
-        categoryList.add(new category(4, "Супы"));
-        categoryList.add(new category(5, "Прочее"));
+        List<Category> categoryList = new ArrayList<>();
+        categoryList.add(new Category("Мясо"));
+        categoryList.add(new Category("Рыба"));
+        categoryList.add(new Category("Сладости"));
+        categoryList.add(new Category("Супы"));
+        categoryList.add(new Category("Прочее"));
 
         setCategoryRecycler(categoryList);
 
@@ -74,8 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        });
 
 
-        recipesList.add(new Recipes(1, "basturma", "Бастурма", "22 дня", "средний", "#424345", "Вкуснейший рецепт", 1));
-        recipesList.add(new Recipes(2, "python_3", "Камбала в духовке", "1 час", "начальный", "#9FA52D", "Рецепт будет позже", 2));
+        recipesList.add(new Cook("Бфстурма", "Бастурма", "Меять", "python_3", "33 дня",
+                "амам", true, "#9FA52D", "Мясо"));
 
         fullrecipesList.addAll(recipesList);
         setResipesRecycler(recipesList);
@@ -86,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonCategoryAll.setOnClickListener(this);
     }
 
-    private void setCategoryRecycler(List<category> categoryList){
+    private void setCategoryRecycler(List<Category> categoryList){
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
 
@@ -97,15 +88,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         categoryRecycle.setAdapter(categoryAdapter);
     }
 
-    public static void ShowRecipesByCategory(int category){
+    public static void ShowRecipesByCategory(String category){
 
         recipesList.clear();
         recipesList.addAll(fullrecipesList);
 
-        List<Recipes> filterResipes = new ArrayList<>();
+        List<Cook> filterResipes = new ArrayList<>();
 
-        for (Recipes c : recipesList){
-            if (c.getCategory() == category){
+        for (Cook c : recipesList){
+            if (c.getCategory().equals(category)){
                 filterResipes.add(c);
             }
         }
@@ -115,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             recipesAdapter.notifyDataSetChanged();
     }
 
-    private void setResipesRecycler(List<Recipes> recipesList){
+    private void setResipesRecycler(List<Cook> recipesList){
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
 
