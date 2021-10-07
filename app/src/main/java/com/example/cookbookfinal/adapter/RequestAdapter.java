@@ -41,8 +41,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
 
     @Override
     public void onBindViewHolder(@NonNull RequestViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        int imageId = context.getResources().getIdentifier("ic_" + request.get(position).getImage(), "drawable", context.getPackageName());
-//        holder.requestImage.setImageResource(imageId);
+
         Picasso.get().load(request.get(position).getImage()).into(holder.requestImage);
 
         holder.requestTitle.setText(request.get(position).getName());
@@ -62,7 +61,6 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
                 intent.putExtra("resipesLevel", request.get(position).getLevel());
                 intent.putExtra("resipesText", request.get(position).getDescription());
                 intent.putExtra("recipeShortDescription", request.get(position).getShortDescription());
-//                intent.putExtra("resipesId", recipes.get(position).getId());
                 context.startActivity(intent, options.toBundle());
             }
         });

@@ -66,7 +66,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
                 intent.putExtra("resipesLevel", recipes.get(position).getLevel());
                 intent.putExtra("resipesText", recipes.get(position).getDescription());
                 intent.putExtra("recipeShortDescription", recipes.get(position).getShortDescription());
-//                intent.putExtra("resipesId", recipes.get(position).getId());
                 context.startActivity(intent, options.toBundle());
             }
         });
