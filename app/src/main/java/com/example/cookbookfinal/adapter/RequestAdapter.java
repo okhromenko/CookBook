@@ -1,6 +1,11 @@
 package com.example.cookbookfinal.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cookbookfinal.Models.Cook;
 import com.example.cookbookfinal.R;
+import com.example.cookbookfinal.RecipesPage;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,13 +40,32 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RequestViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RequestViewHolder holder, @SuppressLint("RecyclerView") int position) {
         int imageId = context.getResources().getIdentifier("ic_" + request.get(position).getImage(), "drawable", context.getPackageName());
-        holder.requestImage.setImageResource(imageId);
+//        holder.requestImage.setImageResource(imageId);
+        Picasso.get().load(request.get(position).getImage()).into(holder.requestImage);
 
         holder.requestTitle.setText(request.get(position).getName());
         holder.requestDate.setText(request.get(position).getTime());
         holder.requestLevel.setText(request.get(position).getLevel());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, RecipesPage.class);
+
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity)  context,
+                        new Pair<View, String >(holder.requestImage, "resipesImage"));
+                intent.putExtra("resipesImage", request.get(position).getImage());
+                intent.putExtra("resipesTitle", request.get(position).getName());
+                intent.putExtra("resipesDate", request.get(position).getTime());
+                intent.putExtra("resipesLevel", request.get(position).getLevel());
+                intent.putExtra("resipesText", request.get(position).getDescription());
+                intent.putExtra("recipeShortDescription", request.get(position).getShortDescription());
+//                intent.putExtra("resipesId", recipes.get(position).getId());
+                context.startActivity(intent, options.toBundle());
+            }
+        });
     }
 
     @Override

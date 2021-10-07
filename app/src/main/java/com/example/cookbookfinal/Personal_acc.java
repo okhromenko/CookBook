@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.cookbookfinal.Models.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,7 +48,16 @@ public class Personal_acc extends AppCompatActivity {
                         ImageView view = findViewById(R.id.OpenSettings);
                         view.setVisibility(View.VISIBLE);
                     };
+
+                    if (ds.getKey().toString().equals(tt)) {
+                        TextView roleAc = findViewById(R.id.roleAcc);
+                        TextView emailAc = findViewById(R.id.emailAcc);
+                        if (value.getRole() == true) roleAc.setText("модератор");
+                        else roleAc.setText("пользователь");
+                        emailAc.setText(value.getEmail());
+                    };
                 }
+
             }
 
             @Override

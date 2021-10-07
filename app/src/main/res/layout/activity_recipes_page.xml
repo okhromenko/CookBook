@@ -8,6 +8,62 @@
     android:background="@color/gamma_dark"
     android:backgroundTint="@color/gamma_dark">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/gamma_orange"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/AddBdRecipes"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:onClick="AddResipesBd"
+                android:layout_margin="1dp"
+                android:visibility="gone"
+                android:backgroundTint="@color/gamma_yellow"
+                android:fontFamily="@font/montserrat_medium"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/AddBdRecipes"
+                android:textColor="@color/gamma_red"
+                app:cornerRadius="10dp" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:cardBackgroundColor="@color/gamma_orange"
+            app:cardCornerRadius="10dp">
+
+            <Button
+                android:id="@+id/DeleteBdRecipes"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
+                android:layout_margin="1dp"
+                android:visibility="gone"
+                android:onClick="DeleteResipesBd"
+                android:backgroundTint="@color/gamma_red"
+                android:fontFamily="@font/montserrat_medium"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/DeleteBdRecipes"
+                android:textColor="@color/gamma_yellow"
+                app:cornerRadius="10dp" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="42dp"
@@ -98,8 +154,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="296dp"
+        android:layout_height="174dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/ResipesPageTitle"
@@ -108,7 +164,7 @@
     <TextView
         android:id="@+id/recipesPageLevel2"
         android:layout_width="270dp"
-        android:layout_height="75dp"
+        android:layout_height="46dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/app_name"
@@ -121,12 +177,14 @@
     <TextView
         android:id="@+id/RecipesPageText"
         android:layout_width="270dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="124dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="25dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="@string/app_name"
         android:textColor="@color/gamma_yellow"
         android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/recipesBg" />
