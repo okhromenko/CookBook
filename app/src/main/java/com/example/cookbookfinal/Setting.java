@@ -7,12 +7,17 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.cookbookfinal.Models.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +33,7 @@ public class Setting extends AppCompatActivity {
     DatabaseReference mdatabaseref;
     User user;
     ConstraintLayout root;
+    private static final String TAG = "myLogs";
 
 
     @Override
@@ -46,22 +52,52 @@ public class Setting extends AppCompatActivity {
     public void AddResipesBd(View view){
 
         final MaterialEditText username = findViewById(R.id.UsernameSetting);
+        final MaterialEditText email = findViewById(R.id.EmailSettings);
         final MaterialEditText password = findViewById(R.id.NewPasswordSettings);
+        final MaterialEditText passwordOld = findViewById(R.id.OldPasswordSettings);
 
         myRef = FirebaseDatabase.getInstance().getReference();
         FirebaseUser UseruID = mAuth.getInstance().getCurrentUser();
 
         root = findViewById(R.id.rootSetting);
 
-        if (password.getText().toString().length() < 5){
+        if (passwordOld.getText().toString().length() < 5){
             Snackbar.make(root, "Введите пароль более 5 символов", Snackbar.LENGTH_SHORT).show();
             return;
         }
 
-        if (TextUtils.isEmpty(username.getText().toString())){
-            Snackbar.make(root, "Введите ваш ник", Snackbar.LENGTH_SHORT).show();
-            return;
-        }
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        AuthCredential credential = EmailAuthProvider
+                .getCredential(email.getText().toString(), passwordOld.getText().toString());
+
+
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            user.updatePassword(password.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Log.d(TAG, "Password updated");
+                                        startActivity(new Intent(Setting.this, Request.class));
+                                        finish();
+                                    } else {
+                                        Log.d(TAG, "Error password not updated");
+                                        startActivity(new Intent(Setting.this, Request.class));
+                                        finish();
+                                    }
+                                }
+                            });
+                        } else {
+                            Log.d(TAG, "Error auth failed");
+                            startActivity(new Intent(Setting.this, Request.class));
+                            finish();
+                        }
+                    }
+                });
 
         mdatabaseref = FirebaseDatabase.getInstance().getReference("Users");
         mdatabaseref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,9 +116,6 @@ public class Setting extends AppCompatActivity {
 
                         DatabaseReference settingPassword = ds.getRef().child("password");
                         settingPassword.setValue(password.getText().toString());
-
-                        Intent intent = new Intent(Setting.this, Personal_acc.class);
-                        startActivity(intent);
                     };
                 }
             }

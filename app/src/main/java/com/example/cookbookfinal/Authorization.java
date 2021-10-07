@@ -37,6 +37,7 @@ public class Authorization extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authorization);
 
@@ -75,6 +76,7 @@ public class Authorization extends AppCompatActivity {
 
                 final MaterialEditText email = findViewById(R.id.emailField);
                 final MaterialEditText password = findViewById(R.id.passField);
+
 
                 if (TextUtils.isEmpty(email.getText().toString())){
                     Snackbar.make(root, "Введите вашу почту", Snackbar.LENGTH_SHORT).show();
