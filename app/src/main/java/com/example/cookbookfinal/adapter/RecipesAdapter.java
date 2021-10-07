@@ -46,11 +46,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesV
     @Override
     public void onBindViewHolder(@NonNull RecipesViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        /*int imageId = context.getResources().getIdentifier("ic_" + recipes.get(position).getImage(), "drawable", context.getPackageName());*/
-
         Picasso.get().load(recipes.get(position).getImage()).into(holder.recipesImage);
-
-//        holder.recipesImage.setImageResource(imageId);
 
         holder.recipesTitle.setText(recipes.get(position).getName());
         holder.recipesDate.setText(recipes.get(position).getTime());
