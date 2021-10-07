@@ -129,8 +129,8 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="180dp"
+                android:id="@+id/emailAcc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat_bold"
@@ -139,8 +139,8 @@
                 android:textColor="@color/gamma_yellow" />
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="180dp"
+                android:id="@+id/roleAcc"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="TextView"
