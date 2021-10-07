@@ -92,18 +92,6 @@ public class Request extends AppCompatActivity {
             }
         });
 
-        requestList.add(new Cook("Безе", "Вкуснейший десерт!",
-                "Каждый пользователь, лишь раз увидев безе, захочет её приготовить!",
-                "python_3", "1 час", "средний", true,  "Десерт"));
-        requestList.add(new Cook("Шоколадные кексы", "Вкуснейший десерт!",
-                "Каждый пользователь, лишь раз увидев безе, захочет её приготовить!",
-                "python_3", "1 час", "средний", true,  "Десерт"));
-        requestList.add(new Cook("Мармелад", "Вкуснейший десерт!",
-                "Каждый пользователь, лишь раз увидев безе, захочет её приготовить!",
-                "python_3", "1 час", "средний", true,  "Десерт"));
-
-        setRequestRecycler(requestList);
-
     }
 
     private void setRequestRecycler(List<Cook> requestList) {
