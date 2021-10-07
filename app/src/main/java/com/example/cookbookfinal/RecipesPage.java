@@ -110,6 +110,10 @@ public class RecipesPage extends AppCompatActivity {
     }
 
     public void AddResipesBd(View view){
+
+        TextView Title = findViewById(R.id.ResipesPageTitle);
+        TextView Description = findViewById(R.id.RecipesPageText);
+
         mdatabaseref = FirebaseDatabase.getInstance().getReference("Cook");
         mdatabaseref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -117,27 +121,54 @@ public class RecipesPage extends AppCompatActivity {
 
                 for (DataSnapshot ds : snapshot.getChildren()){
                     Cook value = ds.getValue(Cook.class);
+                    if (value.getDescription().equals(Description.getText().toString()) &&
+                            value.getName().equals(Title.getText().toString())) {
+
+                        DatabaseReference Release = ds.getRef().child("release");
+                        Release.setValue(true);
 
 
+                        Intent intent = new Intent(RecipesPage.this, Request.class);
+                        startActivity(intent);
+                    };
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                /*List<Category> categoryList = new ArrayList<>();
-                categoryList.add(new Category("Мясо"));
-                categoryList.add(new Category("Рыба"));
-                categoryList.add(new Category("Сладости"));
-                categoryList.add(new Category("Супы"));
-                categoryList.add(new Category("Прочее"));*/
-
             }
         });
     }
 
     public void DeleteResipesBd(View view){
-        Intent intent = new Intent(this, Request.class);
-        startActivity(intent);
+        TextView Title = findViewById(R.id.ResipesPageTitle);
+        TextView Description = findViewById(R.id.RecipesPageText);
+
+        mdatabaseref = FirebaseDatabase.getInstance().getReference("Cook");
+        mdatabaseref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                for (DataSnapshot ds : snapshot.getChildren()){
+                    Cook value = ds.getValue(Cook.class);
+                    if (value.getDescription().equals(Description.getText().toString()) &&
+                            value.getName().equals(Title.getText().toString())) {
+
+                        DatabaseReference Release = ds.getRef();
+                        Release.removeValue();
+
+
+                        Intent intent = new Intent(RecipesPage.this, Request.class);
+                        startActivity(intent);
+                    };
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
