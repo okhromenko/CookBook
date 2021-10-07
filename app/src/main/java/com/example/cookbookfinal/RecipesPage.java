@@ -67,6 +67,8 @@ public class RecipesPage extends AppCompatActivity {
                         AddBdRecipes.setVisibility(View.VISIBLE);
                         DeleteBdRecipes.setVisibility(View.VISIBLE);
                     };
+
+
                 }
             }
 
@@ -123,12 +125,12 @@ public class RecipesPage extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                List<Category> categoryList = new ArrayList<>();
+                /*List<Category> categoryList = new ArrayList<>();
                 categoryList.add(new Category("Мясо"));
                 categoryList.add(new Category("Рыба"));
                 categoryList.add(new Category("Сладости"));
                 categoryList.add(new Category("Супы"));
-                categoryList.add(new Category("Прочее"));
+                categoryList.add(new Category("Прочее"));*/
 
             }
         });
